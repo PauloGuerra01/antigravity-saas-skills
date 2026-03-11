@@ -4,7 +4,7 @@ name: authentication-authorization-pattern
 description: Implement secure authentication and authorization mechanisms for SaaS backends using token-based identity and role-based access control.
 category: backend
 version: 1.0
-------------
+---
 
 # Authentication and Authorization Pattern
 
