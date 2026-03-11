@@ -1,10 +1,9 @@
 ---
-
 name: service-layer-pattern
-description: Enforce a layered backend architecture separating controllers, services and data access for scalable SaaS systems.
+description: Enforce a layered backend architecture separating controllers, services and data access layers for scalable SaaS systems.
 category: backend
 version: 1.0
-------------
+---
 
 # Service Layer Pattern
 
