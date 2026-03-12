@@ -88,3 +88,263 @@ Characteristics:
 * no direct API calls
 
 Examples:
+
+
+Button
+Card
+Input
+Modal
+Table
+Badge
+
+
+---
+
+### Container Components
+
+Container components coordinate logic and data.
+
+Responsibilities:
+
+* calling hooks
+* managing state
+* composing presentation components
+
+Examples:
+
+
+DashboardPage
+BillingPage
+UserProfilePage
+
+
+Container components should remain thin and delegate rendering to smaller components.
+
+---
+
+## 3. Component Composition
+
+Complex UI should be built through **composition of smaller components**.
+
+Avoid very large components.
+
+Bad example:
+
+
+DashboardPage
+600+ lines
+handles layout
+handles metrics
+handles tables
+handles forms
+
+
+Preferred approach:
+
+
+DashboardPage
+DashboardHeader
+MetricsGrid
+ActivityFeed
+BillingSummary
+
+
+Each subcomponent should handle a focused UI concern.
+
+---
+
+## 4. Props-Driven Design
+
+Components should be configurable through props.
+
+Avoid tightly coupling components to specific data sources.
+
+Bad example:
+
+Component internally fetching specific data.
+
+Preferred:
+
+Component receives data through props.
+
+Example:
+
+
+<UserCard name="John" role="Admin" avatar="..." />
+
+
+This improves component reuse.
+
+---
+
+## 5. Reusable UI Component Library
+
+Reusable UI components should be centralized.
+
+Recommended location:
+
+
+components/ui
+
+
+Examples:
+
+
+Button
+Input
+Card
+Modal
+Dropdown
+Tabs
+Badge
+Tooltip
+
+
+These components must remain **domain-agnostic**.
+
+They should not contain business logic.
+
+---
+
+# Implementation Guidelines
+
+## Keep Components Small
+
+Prefer components under ~150 lines whenever possible.
+
+Large components should be broken into smaller units.
+
+Example:
+
+
+UserProfilePage
+ProfileHeader
+UserStats
+ActivityList
+AccountSettings
+
+
+---
+
+## Avoid Business Logic in UI Components
+
+Business logic should live in:
+
+
+hooks/
+services/
+
+
+Components should focus on:
+
+* rendering
+* event handling
+* layout composition
+
+---
+
+## Prefer Composition Over Configuration
+
+Avoid components with excessive conditional rendering.
+
+Bad example:
+
+
+<BigComponent variant="dashboard" mode="billing" type="settings" layout="admin" />
+
+
+Instead create smaller specialized components.
+
+---
+
+## Explicit Props Interfaces
+
+All components must define explicit TypeScript interfaces for props.
+
+Example:
+
+
+interface UserCardProps {
+name: string
+role: string
+avatar: string
+}
+
+
+This improves type safety and code readability.
+
+---
+
+# Anti-Patterns
+
+Agents must avoid the following component design mistakes.
+
+## Fat UI Components
+
+Components that include:
+
+* API calls
+* business logic
+* data transformation
+* complex state orchestration
+
+This leads to unmaintainable code.
+
+---
+
+## Deep Component Nesting
+
+Avoid deeply nested component trees.
+
+Bad:
+
+
+Component
+Layout
+Container
+Wrapper
+Box
+Panel
+
+
+Prefer flatter hierarchies.
+
+---
+
+## Hardcoded Data
+
+Components should not contain hardcoded business data.
+
+Bad example:
+
+
+const plan = "Premium"
+
+
+Components should receive such data via props.
+
+---
+
+# Expected AI Behavior
+
+When generating React components, the AI agent should:
+
+* create small focused components
+* separate presentation and container logic
+* build complex UI through composition
+* define explicit TypeScript props
+* reuse components from the UI library
+
+Example structure:
+
+
+features/dashboard/components/
+
+DashboardPage.tsx
+DashboardHeader.tsx
+MetricsGrid.tsx
+MetricCard.tsx
+RecentActivity.tsx
+
+
+Each component should remain focused on a single UI responsibility.
