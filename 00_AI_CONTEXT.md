@@ -102,3 +102,17 @@ Before implementing any solution:
 4. Follow the architectural constraints defined in the skill.
 
 Avoid implementing solutions that conflict with existing skill definitions.
+
+:::writing{variant=“standard” id=“91247”}
+
+Agent Startup Procedure
+
+Before implementing any change, AI agents must follow this order:
+	1.	Read 00_AI_CONTEXT.md to understand the repository.
+	2.	Follow the rules defined in AGENT_RULES.md.
+	3.	Use SKILL_ROUTING.md to identify the correct skill category.
+	4.	Read the relevant SKILL.md file inside the skills/ directory.
+	5.	Validate the implementation using SKILL_CHECKLIST.md.
+
+Do not implement features without consulting the relevant skill definitions.
+:::
